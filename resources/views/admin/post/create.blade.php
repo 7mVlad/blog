@@ -28,56 +28,69 @@
                       <div class="col-12">
                           <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                              <div class="form-group">
+                              <div class="form-group w-25">
                                     <label>Название</label>
                                     <input type="text" class="form-control" name="title" placeholder="Название поста" value="{{old('title')}}">
                               </div>
                               @error('title')
                                 <div class="text-danger">Это поле необходимо для заполнения</div>
                               @enderror
-                              <div class="form-group">
+                              <div class="form-group w-75">
                                 <label>Описание</label>
-                                <textarea class="form-control" placeholder="Описание" name="content" style="resize: none; height:100px">{{old('content')}}</textarea>
+                                <textarea class="form-control" placeholder="Описание" name="content" style="resize: none; height:150px">{{old('content')}}</textarea>
                               </div>
                               @error('content')
                                 <div class="text-danger">Это поле необходимо для заполнения</div>
                               @enderror
-                              <div class="form form-group">
-                                <div class="form-inner">
-                                    @for($i = 1; $i <= 5; $i++)
-                                        <div class="form-element">
-                                            <input type="file" id="file-{{$i}}" accept="image/*">
-                                            <label for="file-{{$i}}" id="file-{{$i}}-preview">
-                                                <img src="https://bit.ly/3ubuq5o" alt="">
-                                                <div>
+                              <div class="form-group mt-5">
+                                <div class=" d-flex">
+                                    <label class="m-5">Главная картинка</label>
+
+                                        <div class="form-element ml-5">
+                                            <input type="file" id="img-main" accept="image/*">
+                                            <label for="img-main" id="img-main-preview">
+                                                <img src="https://bit.ly/3ubuq5o" alt="" style="width: 250px; height: 150px">
+                                                <div class="bg-plus">
                                                     <span>+</span>
                                                 </div>
                                             </label>
+                                            {{-- Delete img --}}
+                                            <div class="btn-inner">
+                                                <div class="btn-delete btn-image-main" id="submit-main" style="margin-left: 235px;">
+                                                    <span>x</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                </div>
+                              </div>
+                              <div class="form-group mt-5">
+                                <div class="d-flex justify-content-between">
+                                    <label class="m-5">Галерея картинок <br><br> Размер: 1000 х 190</label>
+                                    @for($i = 1; $i < 6; $i++)
+                                        <div class="form-element mr-5">
+                                            <input type="file" id="img-{{$i}}" accept="image/*">
+                                            <label for="img-{{$i}}" id="img-{{$i}}-preview">
+                                                <img src="https://bit.ly/3ubuq5o" alt="" style="width: 150px; height: 150px">
+                                                <div class="bg-plus">
+                                                    <span>+</span>
+                                                </div>
+                                            </label>
+                                            {{-- Delete img --}}
+                                            <div class="btn-inner">
+                                                <div class="btn-delete btn-image" id="submit-{{$i}}">
+                                                    <span>x</span>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     @endfor
                                 </div>
                               </div>
 
-                              <script>
 
-                                function previewBeforeUpload(id) {
-
-                                document.querySelector("#"+id).addEventListener("change",function(e){
-                                if(e.target.files.length == 0){
-                                  return;
-                                }
-                                let file = e.target.files[0];
-                                let url = URL.createObjectURL(file);
-                                document.querySelector("#"+id+"-preview div").remove();
-                                document.querySelector("#"+id+"-preview img").src = url;
-                              });
-                             }
-
-                             for (let i = 1; i < 5; i++) {
-                                previewBeforeUpload("file-"+i);
-                             }
-
-                             </script>
 
                               <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Добавить">
@@ -92,55 +105,17 @@
           <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
+
+<script>
+
+
+
+</script>
   @endsection
 
 
 
 
-
-
-  <style>
-
-  .form-inner {
-   margin-top: 50px;
-   display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-   gap: 20px;
-  }
-
-  .form-element {
-   width: 150px;
-   height: 150px;
-  }
-
-.form-element input {
-   display: none;
-  }
-
-  .form-element img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-  }
-
-  .form-element div {
-   position: relative;
-   height: 40px;
-   margin-top: -40px;
-   background: rgba(0, 0, 0, 0.5);
-   text-align: center;
-   line-height: 40px;
-   font-size: 13px;
-   color: #f5f5f5;
-   font-weight: 600;
-  }
-
-  .form-element span {
-   font-size: 40px;
-  }
-
-  </style>
 
 
 

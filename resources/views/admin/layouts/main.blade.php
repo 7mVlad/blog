@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}} ">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}} ">
+  <link rel="stylesheet" href="{{ asset('css/formImg.css') }}">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -72,5 +73,6 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}} "></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}} "></script>
+<script src="{{asset('js/formImg.js')}} "></script>
 </body>
 </html>
