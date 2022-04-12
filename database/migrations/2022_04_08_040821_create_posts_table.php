@@ -17,11 +17,15 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->string('main-image')->nullable();
+            for($i = 1; $i < 6; $i++) {
+                $table->string('image-'.$i)->nullable();
+            }
+            // $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 
-            $table->index('category_id', 'post_category_idx');
-            $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
+            // $table->index('category_id', 'post_category_idx');
+            // $table->foreign('category_id', 'post_category_fk')->on('categories')->references('id');
 
             $table->softDeletes();
         });

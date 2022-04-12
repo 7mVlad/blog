@@ -47,7 +47,7 @@
                                     <label class="m-5">Главная картинка</label>
 
                                         <div class="form-element ml-5">
-                                            <input type="file" id="img-main" accept="image/*">
+                                            <input type="file" id="img-main" accept="image/*" name="main-image">
                                             <label for="img-main" id="img-main-preview">
                                                 <img src="https://bit.ly/3ubuq5o" alt="" style="width: 250px; height: 150px">
                                                 <div class="bg-plus">
@@ -70,7 +70,7 @@
                                     <label class="m-5">Галерея картинок <br><br> Размер: 1000 х 190</label>
                                     @for($i = 1; $i < 6; $i++)
                                         <div class="form-element mr-5">
-                                            <input type="file" id="img-{{$i}}" accept="image/*">
+                                            <input type="file" id="img-{{$i}}" accept="image/*" name="image-{{$i}}">
                                             <label for="img-{{$i}}" id="img-{{$i}}-preview">
                                                 <img src="https://bit.ly/3ubuq5o" alt="" style="width: 150px; height: 150px">
                                                 <div class="bg-plus">
