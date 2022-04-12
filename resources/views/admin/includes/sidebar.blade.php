@@ -37,7 +37,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{route('admin.tag.index')}}" class="nav-link">
+                <a href="{{route('admin.film.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-solid fa-film"></i>
                     <p>
                         Фильмы

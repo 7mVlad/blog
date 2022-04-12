@@ -55,6 +55,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');
     });
 
+    Route::group(['namespace' => 'Film', 'prefix' => 'films'], function() {
+        Route::get('/', 'IndexController')->name('admin.film.index');
+        Route::get('/create', 'CreateController')->name('admin.film.create');
+        Route::post('/', 'StoreController')->name('admin.film.store');
+        Route::get('/{film}', 'ShowController')->name('admin.film.show');
+        Route::get('/{film}/edit', 'EditController')->name('admin.film.edit');
+        Route::patch('/{film}', 'UpdateController')->name('admin.film.update');
+        Route::delete('/{film}', 'DeleteController')->name('admin.film.delete');
+    });
+
 });
 
 Auth::routes();

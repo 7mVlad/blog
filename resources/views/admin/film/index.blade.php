@@ -26,7 +26,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-2 mb-3 ">
-                <a href="{{route('admin.category.create')}}" class="btn btn-block btn-outline-success">Добавить</a>
+                <a href="{{route('admin.film.create')}}" class="btn btn-block btn-outline-success">Добавить</a>
             </div>
         </div>
         <div class="row">
@@ -43,14 +43,14 @@
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($films as $film)
                             <tr>
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->title}}</td>
-                                <td class="text-center"><a href="{{route('admin.category.show', $category->id )}}"><i class="far fa-eye"></i></a></td>
-                                <td class="text-center"><a href="{{route('admin.category.edit', $category->id )}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                <td>{{$film->id}}</td>
+                                <td>{{$film->title}}</td>
+                                <td class="text-center"><a href="{{route('admin.film.show', $film->id )}}"><i class="far fa-eye"></i></a></td>
+                                <td class="text-center"><a href="{{route('admin.film.edit', $film->id )}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                 <td class="text-center">
-                                    <form action="{{route('admin.category.delete', $category->id)}}" method="POST">
+                                    <form action="{{route('admin.film.delete', $film->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="border-0 bg-transparent">
